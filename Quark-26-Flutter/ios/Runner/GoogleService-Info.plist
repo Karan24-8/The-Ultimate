@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>845460612366-4st6voaia0c1ccf8nv3045t4089ce1pn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.845460612366-4st6voaia0c1ccf8nv3045t4089ce1pn</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>845460612366-47kkldgmvlno67istuu8vlvfkv5f364u.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA4y24I_f6qvkKVo3awi6nYA8-8lPCyamE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>845460612366</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.quark25Flutter</string>
+	<key>PROJECT_ID</key>
+	<string>quark26-a9aae</string>
+	<key>STORAGE_BUCKET</key>
+	<string>quark26-a9aae.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:845460612366:ios:6b247d0ca560375b16635f</string>
+</dict>
+</plist>

@@ -1,0 +1,31 @@
+[["Daliya (250g)","Apple (2 piece(s))","Almonds (30g)","Curd (200ml)"],
+["Corn (250g)","Chikoo (3 piece(s))","Apricots (30g)","Buttermilk (200ml)"],
+["Poha (250g)","Banana (3 piece(s))","Dates (30g)","Milk (200ml)"],
+["Sooji (250g)","Fig (3 piece(s))","Walnuts (30g)","Whey Protein Shake (200ml)"],
+["Oats (250g)","Pineapple (3 piece(s))","Pistachios (30g)","Soy Milk (200ml)"],
+["Rava Upma (250g)","Kiwi (6 piece(s))","Cashews (30g)","Almond Milk (200ml)"],
+["Quinoa Upma (250g)","Custard Apple (1 piece(s))","Raisins (30g)","Lassi (200ml)"]]
+
+[["Multigrain Roti (3pcs)","Fenugreek Leaves (150g)","Peas Dry (3x200g)"],
+["Whole Wheat Roti (3pcs)","Bitter Gourd (150g)","Green Gram (4x200g)"],
+["Chapati (3pcs)","Cauliflower (150g)","Horse Gram (3x200g)"],
+["Phulka (3pcs)","French Beans (150g)","Moong Dal (4x200g)"],
+["Roti (3pcs)","Sweet Potato (150g)","Toor Dal (3x200g)"],
+["Laccha Paratha (3pcs)","Bottle Gourd (150g)","Split Peas (4x200g)"],
+["Thepla (3pcs)","Mushroom (150g)","Chana Dal (3x200g)"]]
+
+[["Brown Rice (3x200g)","Fenugreek Leaves (1x150g)"],
+["White Rice (3x200g)","Bitter Gourd (1x150g)"],
+["Pearl Millet Flatbread (3pcs)","Cauliflower (1x150g)"],
+["Maize roti (3pcs)","French Beans (1x150g)"],
+["Sorghum Flatbread (3pcs)","Sweet Potato (1x150g)"],
+["Brown Rice (4x200g)","Bottle Gourd (1x150g)"],
+["White Rice (3x200g)","Mushroom (1x150g)"]]
+
+[{"day": 1, "focus": "Upper Body", "day_name": "Monday", "exercises": [{"name": "Shoulder Press", "reps": 12, "sets": 2, "duration_min": null}, {"name": "Chest Fly", "reps": 16, "sets": 2, "duration_min": null}]}, 
+{"day": 2, "focus": "Legs", "day_name": "Tuesday", "exercises": [{"name": "Glute Bridges", "reps": 12, "sets": 2, "duration_min": null}, {"name": "Step-ups", "reps": 17, "sets": 2, "duration_min": null}]}, 
+{"day": 3, "focus": "Core", "day_name": "Wednesday", "exercises": [{"name": "Bicycle Crunches", "reps": 15, "sets": 2, "duration_min": null}, {"name": "Side Plank", "reps": 14, "sets": 2, "duration_min": null}]}, 
+{"day": 4, "focus": "Cardio", "day_name": "Thursday", "exercises": [{"name": "High Knees", "reps": null, "sets": 2, "duration_min": 6}, {"name": "Running", "reps": null, "sets": 2, "duration_min": 6}]}, 
+{"day": 5, "focus": "Full Body", "day_name": "Friday", "exercises": [{"name": "Sled Push", "reps": 19, "sets": 2, "duration_min": null}, {"name": "Bear Crawls", "reps": 16, "sets": 2, "duration_min": null}]}, 
+{"day": 6, "focus": "Flexibility / Recovery", "day_name": "Saturday", "exercises": [{"name": "Cat-Cow Stretch", "reps": 18, "sets": 2, "duration_min": null}, {"name": "Foam Rolling", "reps": 15, "sets": 2, "duration_min": null}]}, 
+{"day": 7, "focus": "Rest", "day_name": "Sunday", "exercises": []}]

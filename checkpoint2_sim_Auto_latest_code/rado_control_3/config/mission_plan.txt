@@ -1,0 +1,3 @@
+pickup,blue,4.670,-1.377
+pickup,red,4.315,4.392
+pickup,green,3.951,3.755

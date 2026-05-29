@@ -1,0 +1,7 @@
+$begin 'ValidationCache'
+	$begin 'OneValidationResult'
+		Variation='$thickness=\'0.5mm\''
+		Status=true
+		FileName='VI12381832417533353743.tmp'
+	$end 'OneValidationResult'
+$end 'ValidationCache'

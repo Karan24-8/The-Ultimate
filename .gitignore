@@ -1,0 +1,41 @@
+# Flutter
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+
+# Android / Gradle
+.gradle/
+local.properties
+
+# Unity
+Library/
+Temp/
+Obj/
+Build/
+Logs/
+UserSettings/
+
+# ROS / CMake / C++
+build/
+devel/
+install/
+log/
+*.o
+*.out
+*.exe
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# VS Code
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store

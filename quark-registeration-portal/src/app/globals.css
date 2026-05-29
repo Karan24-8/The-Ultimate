@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+@keyframes cycle {
+  0%   { background-image: url('/anim/frame1.png'); }
+  11%  { background-image: url('/anim/frame2.png'); }
+  22%  { background-image: url('/anim/frame3.png'); }
+  33%  { background-image: url('/anim/frame4.png'); }
+  44%  { background-image: url('/anim/frame5.png'); }
+  55%  { background-image: url('/anim/frame6.png'); }
+  66%  { background-image: url('/anim/frame7.png'); }
+  77%  { background-image: url('/anim/frame8.png'); }
+  88%  { background-image: url('/anim/frame9.png'); }
+  100% { background-image: url('/anim/frame1.png'); }
+}
+
+
+.anim-cycle {
+  animation: cycle 3s steps(1) infinite;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
+

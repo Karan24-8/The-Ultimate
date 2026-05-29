@@ -1,0 +1,832 @@
+:root {
+    --bg: #121212;
+    --panel: #1e1e1e;
+    --border: #333;
+    --accent: #007bff;
+    --text: #e0e0e0;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warn: #ffc107;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* HEADER */
+.header {
+    background: #000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border);
+    height: 50px;
+}
+
+.brand {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.header-right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    background: #444;
+}
+
+.status-badge.MANUAL {
+    background: var(--success);
+    color: white;
+}
+
+.status-badge.AUTO {
+    background: var(--accent);
+    color: white;
+}
+
+.status-badge.IDLE {
+    background: #666;
+    color: #ccc;
+}
+
+/* Popup Button */
+.btn-popup {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    border: 1px solid #0f3460;
+    color: cyan;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    width: auto;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-popup:hover {
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+    border-color: cyan;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.btn-popup i {
+    font-size: 11px;
+}
+
+.status-badge.AUTONOMOUS {
+    background: var(--danger);
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+/* TABS */
+.tabs {
+    display: flex;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    cursor: pointer;
+    background: transparent;
+    color: #888;
+    border: none;
+    font-size: 16px;
+    border-bottom: 3px solid transparent;
+    transition: 0.2s;
+}
+
+.tab-btn:hover {
+    background: #252525;
+    color: white;
+}
+
+.tab-btn.active {
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
+    background: #2a2a2a;
+}
+
+.tab-btn i {
+    margin-right: 8px;
+}
+
+/* LAYOUT */
+.content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.tab-pane {
+    display: none;
+    height: 100%;
+}
+
+.tab-pane.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    flex: 1;
+    min-height: 0;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.card-compact {
+    padding: 10px;
+}
+
+.card h3 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    font-size: 16px;
+    color: #aaa;
+    text-transform: uppercase;
+}
+
+/* CONTROLS */
+button {
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: 0.2s;
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.btn-green {
+    background: var(--success);
+    border-color: #1e7e34;
+}
+
+.btn-red {
+    background: var(--danger);
+    border-color: #bd2130;
+}
+
+.btn-blue {
+    background: var(--accent);
+    border-color: #0056b3;
+}
+
+.btn-yellow {
+    background: #f1c40f;
+    border-color: #d4ac0d;
+    color: #000;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 15px 0;
+}
+
+/* MISSION PLAN GRID */
+.mission-grid-header {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.mission-grid-col-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    color: #aaa;
+    padding: 5px;
+    background: #333;
+    border-radius: 4px;
+}
+
+.mission-grid-color-label {
+    /* Empty placeholder for alignment */
+}
+
+.mission-plan-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mission-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 5px;
+    align-items: stretch;
+}
+
+.mission-row-color {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.mission-row-color.red {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.mission-row-color.green {
+    background: #27ae60;
+    color: #fff;
+}
+
+.mission-row-color.blue {
+    background: #3498db;
+    color: #fff;
+}
+
+.mission-row-color.yellow {
+    background: #f1c40f;
+    color: #000;
+}
+
+.mission-row-color.orange {
+    background: #ff9d15;
+    color: #000000;
+}
+
+.mission-cell {
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 8px;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.mission-cell.empty {
+    color: #555;
+    font-style: italic;
+    justify-content: center;
+    align-items: center;
+}
+
+.mission-coord-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #333;
+    padding: 4px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mission-coord-item:hover {
+    background: #444;
+    border-color: var(--accent);
+}
+
+.mission-coord-item.selected {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+.mission-coord-item input[type="radio"] {
+    margin: 0;
+    width: 14px;
+    height: 14px;
+}
+
+.mission-coord-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mission-coord-actions {
+    display: flex;
+    gap: 3px;
+    margin-left: 5px;
+}
+
+.coord-action-btn {
+    width: 20px !important;
+    height: 20px !important;
+    padding: 0 !important;
+    font-size: 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+
+/* Mission Queue Styles */
+.mission-queue {
+    background: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 8px;
+    min-height: 80px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.queue-empty {
+    color: #555;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+.queue-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #2a2a2a;
+    padding: 6px 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    border: 1px solid #444;
+    transition: all 0.2s;
+}
+
+.queue-item:last-child {
+    margin-bottom: 0;
+}
+
+.queue-item.active {
+    border-color: var(--accent);
+    background: rgba(0, 123, 255, 0.15);
+}
+
+.queue-item.completed {
+    opacity: 0.5;
+    background: rgba(40, 167, 69, 0.1);
+    border-color: #28a745;
+}
+
+.queue-item-order {
+    background: #444;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+.queue-item-info {
+    flex: 1;
+    font-size: 12px;
+}
+
+.queue-item-type {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.queue-item-coords {
+    color: #888;
+    font-size: 10px;
+}
+
+.queue-item-actions {
+    display: flex;
+    gap: 3px;
+}
+
+.queue-btn {
+    width: 22px !important;
+    height: 22px !important;
+    padding: 0 !important;
+    font-size: 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+/* Mission Status Panel */
+.mission-status-panel {
+    background: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.mission-countdown {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f1c40f;
+    text-align: center;
+    padding: 10px;
+}
+
+.mission-action-text {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* ELEMENTS */
+#map {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: 2px solid #444;
+}
+
+.camera-feed {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: black;
+    border-radius: 8px;
+}
+
+.cam-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    flex: 1;
+    min-height: 0;
+}
+
+.cam-slot {
+    position: relative;
+    width: 100%;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 0;
+    flex: 1;
+}
+
+.cam-select {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: auto;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 10;
+}
+
+.cam-select option {
+    background: #222;
+    color: white;
+}
+
+.health-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.health-ok {
+    color: var(--success);
+}
+
+.health-err {
+    color: var(--danger);
+}
+
+.arm-slider-group {
+    margin-bottom: 5px;
+}
+
+.arm-slider-group input[type="range"] {
+    margin: 5px 0;
+}
+
+.arm-slider-group label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #ccc;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* PS5 CONTROLLER VIS */
+#ps5-container {
+    position: relative;
+    width: 600px;
+    min-width: unset;
+    /* Force width to prevent flex squash */
+    height: 350px;
+    background: #111;
+
+    /* Darker for contrast */
+    border-radius: 40px;
+    border: 3px solid #666;
+    /* Visible border */
+    box-shadow: inset 0 0 30px #000, 0 5px 15px rgba(0, 0, 0, 0.5);
+    transform-origin: top center;
+    /* Center it */
+    transform: scale(0.75);
+    /* Larger scale */
+    margin: 0 auto;
+    /* Center horizontally */
+}
+
+.ps5-wrapper {
+    width: 100%;
+    height: 230px;
+    /* Adjusted hole size */
+    overflow: hidden;
+    /* Hide excess scale margin if any */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Top align */
+    padding-top: 10px;
+}
+
+.ps-btn {
+    background: #444;
+    /* Lighter buttons */
+    border: 1px solid #888;
+    /* Visible border */
+    transition: all 0.1s;
+    position: absolute;
+    z-index: 10;
+}
+
+.ps-btn.round {
+    border-radius: 50%;
+}
+
+.ps-btn.pill {
+    border-radius: 4px;
+}
+
+.ps-trigger-bar {
+    background: #222;
+    border: 1px solid #555;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.ps-trigger-fill {
+    background: lime;
+    width: 100%;
+    height: 0%;
+    position: absolute;
+    bottom: 0;
+    transition: height 0.05s;
+}
+
+/* PROCESS CONTROL GRID */
+.process-grid {
+    display: grid;
+    grid-template-columns: 100px 60px 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.process-grid>div {
+    font-size: 14px;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #444;
+    margin: 0 auto;
+    border: 1px solid #666;
+    transition: all 0.3s;
+}
+
+.status-dot.active {
+    background: #2ecc71;
+    box-shadow: 0 0 8px #2ecc71;
+    border-color: #27ae60;
+}
+
+.status-dot.error {
+    background: #e74c3c;
+    box-shadow: 0 0 8px #e74c3c;
+}
+
+.proc-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.proc-actions button {
+    padding: 5px;
+    font-size: 12px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- COMPETITION MODE STYLES (RECON TAB) --- */
+/* Refined for clarity and reduced clutter */
+
+#tab-recon .grid-2 {
+    gap: 30px;
+    /* More breathing room */
+}
+
+#tab-recon .card {
+    border: 1px solid #333;
+    /* Softer border */
+    background: #1e1e1e;
+    /* Standard panel bg */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+}
+
+#tab-recon h3 {
+    color: #ccc;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+}
+
+/* GPS Dashboard Look */
+#tab-recon #recon-lat,
+#tab-recon #recon-lon {
+    font-family: 'Roboto Mono', 'Courier New', monospace;
+    font-size: 18px;
+    color: #4fc3f7;
+    /* Soft Cyan */
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    min-width: 120px;
+    display: inline-block;
+    text-align: right;
+}
+
+/* Status Pills */
+#tab-recon #status-raspi-recon,
+#tab-recon #status-jetson-recon {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: #fff;
+    min-width: 70px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Log Target Section */
+#tab-recon #obj-select {
+    padding: 8px 12px;
+    border: 1px solid #444;
+    margin-bottom: 15px;
+    font-size: 14px;
+    height: 40px;
+    background: #252525;
+}
+
+#tab-recon .btn-red,
+#tab-recon .btn-yellow,
+#tab-recon .btn-orange,
+#tab-recon .btn-blue,
+#tab-recon .btn-green {
+    height: 40px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+/* Main Log Button */
+#tab-recon .btn-blue[onclick="sendLog()"] {
+    margin-top: 5px;
+    height: 45px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Visuals Row */
+#tab-recon #joyCanvas,
+#tab-recon #vector-canvas {
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: #151515;
+}

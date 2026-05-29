@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "845460612366",
+    "project_id": "quark26-a9aae",
+    "storage_bucket": "quark26-a9aae.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845460612366:android:d50a0b6f5028b86416635f",
+        "android_client_info": {
+          "package_name": "club.devsoc.waves23"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845460612366-47kkldgmvlno67istuu8vlvfkv5f364u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "club.devsoc.waves23",
+            "certificate_hash": "1acf3431d04ba7bc509b0978d71081a707647dd6"
+          }
+        },
+        {
+          "client_id": "845460612366-ch7c4g80vcm4lpmk7si5rfk2d9so74ke.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcdBnhGl6FPFjHKj0gMVUL5N1kOAVeiFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845460612366-ch7c4g80vcm4lpmk7si5rfk2d9so74ke.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "845460612366-4st6voaia0c1ccf8nv3045t4089ce1pn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.quark25Flutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

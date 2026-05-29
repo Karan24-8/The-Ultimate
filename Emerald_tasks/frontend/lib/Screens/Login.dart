@@ -1,0 +1,126 @@
+import 'package:emerald_tasks/Screens/Constants/custom_theme.dart';
+import 'package:emerald_tasks/Screens/chat.dart/task_input.dart';
+import 'package:emerald_tasks/models/createEventsInCalendar.dart';
+import 'package:flutter/material.dart';
+import '../Auth.dart';
+
+class Login extends StatefulWidget {
+  const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  void handleGoogleSignIn() async {
+    final result = await AuthService().signInWithGoogle();
+
+    if (result != null) {
+      final user = result["user"];
+      final token = result["token"];
+
+      print("Logged in as: ${user.email}");
+      print("Access token: $token");
+
+      await createCalendarEvents(token, [
+        {
+          "Title": "Do assignment",
+          "deadline": "2023-10-27T23:30:00+05:30",
+          "effort": 60,
+          "priority": "High",
+          "additional details": "Math homework",
+        },
+      ]);
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => TaskInputScreen()),
+      );
+    } else {
+      print("Google Sign-In cancelled");
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    double h = MediaQuery.heightOf(context);
+    double w = MediaQuery.heightOf(context);
+    return Scaffold(
+      backgroundColor: CustomTheme.cardBackground,
+      body: SafeArea(
+        child: Column(
+          children: [
+            const Spacer(),
+
+            Text(
+              "Welcome",
+              style: TextStyle(
+                fontSize: 0.04 * h,
+                fontWeight: FontWeight.bold,
+                color: CustomTheme.primaryColor,
+              ),
+            ),
+
+            const SizedBox(height: 10),
+
+            const Text(
+              "Sign In to Continue",
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+
+            const Spacer(),
+
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+            //   child: SizedBox(
+            //     width: double.infinity,
+            //     height: 50,
+            //     style: ElevatedButton.styleFrom(
+            //       backgroundColor: Colors.green,
+            //     ),
+            //     child: ElevatedButton.icon(
+            //       onPressed: handleGoogleSignIn,
+            //       icon: Image.network(
+            //         "https://developers.google.com/identity/images/g-logo.png",
+            //         height: 24,
+            //       ),
+            //       label: const Text(
+            //         "Sign-In with Google",
+            //         style: TextStyle(fontSize: 16),
+            //       ),
+            //     ),
+            //   ),
+            // )
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+              child: SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: CustomTheme.textPrimary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12), // optional
+                    ),
+                  ),
+                  onPressed: handleGoogleSignIn,
+                  icon: Image.network(
+                    "https://developers.google.com/identity/images/g-logo.png",
+                    height: 24,
+                  ),
+                  label: const Text(
+                    "Sign-In with Google",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: CustomTheme.backgroundColor,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

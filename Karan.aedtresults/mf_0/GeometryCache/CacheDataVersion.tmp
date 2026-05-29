@@ -1,0 +1,6 @@
+$begin 'CacheDataVersion'
+	DataVersion=2
+$end 'CacheDataVersion'
+$begin 'VariableValues'
+	$thickness='0.5mm'
+$end 'VariableValues'

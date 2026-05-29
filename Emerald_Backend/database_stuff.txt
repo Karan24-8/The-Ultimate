@@ -1,0 +1,136 @@
+Schemas: 
+users
+{
+  "_id": ObjectId,
+  "name": "Karan",
+  "email": "karan@email.com",
+  "timezone": "Asia/Kolkata"
+}
+POST /api/users  --> Creates user after Auth success; store identity + timezone
+GET  /api/users/me  --> Load user context
+
+
+calendarAuth
+{
+  "_id": ObjectId,
+  "userId": ObjectId,
+
+  "provider": "google",
+  "calendarId": "primary",
+
+  "accessToken": "string",
+  "refreshToken": "string",
+  "tokenExpiry": ISODate(),
+
+  "permissionScope": "read_write",
+
+  "createdAt": ISODate()
+}
+GET /api/auth/google   --> start google oauth
+GET /api/auth/google/callback  --> exchange code --> tokens
+GET /api/auth/status
+
+
+userPreferences
+{
+  "workingHours": { "start": "09:00", "end": "18:00" },
+  "workDays": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+  "lunchBreak": { "start": "13:00", "end": "14:00" },
+  "breakDurationMinutes": 10,
+  "maxTasksPerDay": 6
+}
+GET /api/preferences   --> get preferences 
+PUT /api/preferences  --> create / update preferences
+
+
+tasks
+{
+  "_id": ObjectId,
+  "userId": ObjectId,
+
+  "title": "Finish AI assignment",
+  "description": "Week 3 homework",
+
+  "deadline": ISODate(),
+  "estimatedDurationMinutes": 120,
+
+  "userPriority": "High",
+  "urgency": "Medium",
+  "flexibility": "Flexible",
+  "dependencies": [ObjectId],
+
+  /* AI OUTPUT */
+  "priorityScore": 0.86,
+  "recommendedOrder": 2,
+
+  /* Scheduling metadata only */
+  "scheduledStart": ISODate(),
+  "scheduledEnd": ISODate(),
+
+  "status": "scheduled",
+
+  "aiRunId": ObjectId,
+
+  "createdAt": ISODate(),
+  "updatedAt": ISODate()
+}
+POST   /api/tasks   --> create task
+GET    /api/tasks   --> get all tasks
+GET    /api/tasks/:id --> get a single task
+PUT    /api/tasks/:id --> triggers AI rescheduling (async or sync)
+DELETE /api/tasks/:id --> delete a task
+PATCH  /api/tasks/:id/complete  --> mark a task completed
+
+
+aiRuns
+{
+  "_id": ObjectId,
+  "userId": ObjectId,
+
+  "runType": "weekly_schedule",
+
+  "taskIds": [ObjectId],
+
+  "status": "success",
+
+  "trigger": "manual | auto",
+
+  "startedAt": ISODate(),
+  "completedAt": ISODate()
+}
+POST /api/ai/run  --> Sends tasks, preferences, tokens to AI
+POST /api/ai/preview  --> preview schedule
+POST /api/ai/clarify  --> ask clarification questions
+POST /api/ai/clarify/answer  --> post clarification answers
+GET /api/ai/runs/latest  --> get latest ai run
+GET /api/ai/runs  --> get all ai runs
+
+scheduleChanges
+{
+  "_id": ObjectId,
+
+  "userId": ObjectId,
+
+  "taskId": ObjectId,
+
+  /* What triggered the change */
+  "changeTrigger": "ai_reschedule | task_update | new_task | preference_change",
+
+  /* Human-readable reason (short, safe explanation) */
+  "changeReason": "Higher priority task was added",
+
+  /* Old schedule (nullable if newly scheduled) */
+  "oldStart": ISODate(),
+  "oldEnd": ISODate(),
+
+  /* New schedule (nullable if task was unscheduled or removed) */
+  "newStart": ISODate(),
+  "newEnd": ISODate(),
+
+  /* Link to the AI run that caused this */
+  "aiRunId": ObjectId,
+
+  "changedAt": ISODate()
+}
+GET /api/schedule/changes  --> get schedule change history
+
